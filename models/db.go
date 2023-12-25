@@ -11,7 +11,9 @@ const dbFile = "users.db"
 var DB *gorm.DB
 
 func Setup() {
-	DB, err := gorm.Open(sqlite.Open(dbFile), &gorm.Config{})
+	var err error
+
+	DB, err = gorm.Open(sqlite.Open(dbFile), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect database")
 	}

@@ -13,19 +13,7 @@ type User struct {
 }
 
 func CreateUser(user *User) (*User, error) {
-	newUser := User{
-		Name:     "User 2",
-		Email:    "user@local",
-		IsAdmin:  false,
-		Password: "123",
-	}
-
-	fmt.Printf("::  EXT user: %v \n", user)
-	fmt.Printf("::  INT user: %v \n", newUser)
-
-	fmt.Printf("Gloabl DB var: %v\n", DB)
-
-	result := DB.Create(&newUser)
+	result := DB.Create(&user)
 	if result.Error != nil {
 		return nil, result.Error
 	}
